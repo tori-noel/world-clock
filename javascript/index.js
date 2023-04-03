@@ -27,6 +27,9 @@ function updateTime() {
 }
 function updateCity(event) {
   let cityTimeZone = event.target.value;
+  if (cityTimeZone === "current") {
+    cityTimeZone = moment.tz.guess();
+  }
   function updateTime() {
     let cityTime = moment().tz(cityTimeZone);
     setInterval(updateTime, 1000);
