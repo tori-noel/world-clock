@@ -24,6 +24,17 @@ function updateTime() {
       "h:mm:ss [<small>]A[</small>]"
     );
   }
+  // New York
+  let newYorkElement = document.querySelector("#new-york");
+  if (newYorkElement) {
+    let newYorkDateElement = newYorkElement.querySelector(".date");
+    let newYorkTimeElement = newYorkElement.querySelector(".time");
+    let newYorkTime = moment.tz("America/New_York");
+    newYorkDateElement.innerHTML = moment().format("MMMM Do, YYYY");
+    newYorkTimeElement.innerHTML = newYorkTime.format(
+      "h:mm:ss [<small>]A[</small>]"
+    );
+  }
 }
 function updateCity(event) {
   let cityTimeZone = event.target.value;
@@ -44,7 +55,8 @@ function updateCity(event) {
           <div class="time">${cityTime.format(
             "h:mm:ss"
           )} <small> ${cityTime.format("A")} </small> </div>
-        </div>`;
+        </div>
+        <a href= "/"> All Cities <a/>`;
   }
   updateTime();
 }
